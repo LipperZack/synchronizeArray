@@ -95,6 +95,7 @@ nList=[{
 function mapFromArray(array, prop) {
     var map = {};
     for (var i=0; i < array.length; i++) {
+    	array[i].__indexForMapFromArray = i;
         map[ array[i][prop] ] = array[i];
     }
     return map;
@@ -104,7 +105,7 @@ function isEqual(a, b) {
     return a.id === b.id && a.groupName === b.groupName;
 }
 
-function getDelta(o, n, comparator)  {
+function getDelta(o, n)  {
     var delta = {
         added: [],
         deleted: [],
@@ -115,25 +116,45 @@ function getDelta(o, n, comparator)  {
     for (var id in mapO) {
         if (!mapN.hasOwnProperty(id)) {
             delta.deleted.push(mapO[id]);
-        } else if (!comparator(mapN[id], mapO[id])){
-            delta.changed.push(mapN[id]);
+        } else{
+            delta.changed.push({
+            	o: mapO[id],
+            	n: mapN[id]
+            });
         }
     }
 
     for (var id in mapN) {
         if (!mapO.hasOwnProperty(id)) {
+        	delete mapN[id].__indexForMapFromArray;
             delta.added.push( mapN[id] )
         }
     }
     return delta;
 }
 
-var delta = getDelta(oList,nList, isEqual);
+//added 1 
+//deleted 2
+//changed 2
 
+function syncArray(oList, nList){
+	var delta = getDelta(oList,nList);
+	delta.changed.forEach(function(c){
+		oList[c.o.__indexForMapFromArray] = nList[c.n.__indexForMapFromArray]
+	})
 
-// added 1 
-// deleted 3
-// changed 2
+	delta.deleted.sort(function(a,b){
+		return b.__indexForMapFromArray - a.__indexForMapFromArray
+	})
+	delta.deleted.forEach(function(d){
+		oList.splice(d.__indexForMapFromArray, 1)
+	})
+	oList.push.apply(oList, delta.added);
+}
+
+syncArray(oList, nList);
+
+oList;
 
 
 
