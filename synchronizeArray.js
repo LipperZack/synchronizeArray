@@ -206,6 +206,8 @@ function syncArray(oList, nList, changedCallBack){
 		var cb = changedCallBack || function(o,n){
 			// default just extend
 			// complated option will do in custom changedCallBack (like isEqual then not to do)
+			delete o.__indexForMapFromArray;
+			delete n.__indexForMapFromArray;
           	$.extend(o,n);
 		}
 		cb(oList[c.o.__indexForMapFromArray], nList[c.n.__indexForMapFromArray])
