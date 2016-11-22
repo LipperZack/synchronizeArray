@@ -2,6 +2,7 @@ Main to synchronize onw array from another
 But not to loss the reference with simple "="
 
 suppose we have
+```
 oList=[{
 	"id": "1",
 	"property": "origin1",
@@ -95,5 +96,5 @@ nList=[{
 }]
 
 syncArray(oList, nList);
-
+```
 and you will get a new list and not to lose old reference
