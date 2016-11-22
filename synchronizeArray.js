@@ -101,10 +101,6 @@ function mapFromArray(array, prop) {
     return map;
 }
 
-function isEqual(a, b) {
-    return a.id === b.id && a.groupName === b.groupName;
-}
-
 function getDelta(o, n)  {
     var delta = {
         added: [],
