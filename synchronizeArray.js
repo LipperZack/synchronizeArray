@@ -244,6 +244,12 @@ nList=[{
 }(window)
 
 syncArray(oList, nList, 'id');
+// custom callback
+// syncArray(oList, nList, 'id', function(o, n){
+// 	delete o.__indexForMapFromArray;
+// 	delete n.__indexForMapFromArray;
+//   	syncArray(o.innerArray, n.innerArray, 'innerId');
+// });
 
 oList;
 
