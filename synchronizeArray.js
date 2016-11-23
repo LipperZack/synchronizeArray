@@ -159,23 +159,23 @@ nList=[{
 
 
 
-	function mapFromArray(array, prop) {
+	function mapFromArray(array, idProp) {
 	    var map = {};
 	    for (var i=0; i < array.length; i++) {
 	    	array[i].__indexForMapFromArray = i;
-	        map[ array[i][prop] ] = array[i];
+	        map[ array[i][idProp] ] = array[i];
 	    }
 	    return map;
 	}
 
-	function getDelta(o, n)  {
+	function getDelta(o, n, idProp)  {
 	    var delta = {
 	        added: [],
 	        deleted: [],
 	        changed: []
 	    };
-	    var mapO = mapFromArray(o, 'id');
-	    var mapN = mapFromArray(n, 'id');    
+	    var mapO = mapFromArray(o, idProp);
+	    var mapN = mapFromArray(n, idProp);    
 	    for (var id in mapO) {
 	        if (!mapN.hasOwnProperty(id)) {
 	            delta.deleted.push(mapO[id]);
@@ -200,8 +200,8 @@ nList=[{
 	//deleted 2
 	//changed 2
 
-	function syncArray(oList, nList, changedCallBack){
-		var delta = getDelta(oList,nList);
+	function syncArray(oList, nList, idProp, changedCallBack){
+		var delta = getDelta(oList,nList,idProp);
 		delta.changed.forEach(function(c){
 			var cb = changedCallBack || function(o,n){
 				// default just extend
@@ -226,7 +226,7 @@ nList=[{
 	exp.syncArray = syncArray
 }(window)
 
-syncArray(oList, nList);
+syncArray(oList, nList, 'id');
 
 oList;
 
