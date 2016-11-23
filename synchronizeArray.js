@@ -217,6 +217,7 @@ nList=[{
 	//changed 2
 
 	function syncArray(oList, nList, idProp, changedCallBack){
+		var idProp = idProp || 'id';
 		var delta = getDelta(oList,nList,idProp);
 		delta.changed.forEach(function(c){
 			var cb = changedCallBack || function(o,n){
