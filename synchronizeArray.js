@@ -6,8 +6,10 @@ oList=[{
 		"configProperty": "origin1"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "origin1-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "origin1-2",
 	}]
 },{
@@ -17,8 +19,10 @@ oList=[{
 		"configProperty": "origin2"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "origin2-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "origin2-2",
 	}]
 },{
@@ -28,8 +32,10 @@ oList=[{
 		"configProperty": "origin3"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "origin3-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "origin3-2",
 	}]
 },{
@@ -39,8 +45,10 @@ oList=[{
 		"configProperty": "origin4"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "origin4-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "origin4-2",
 	}]
 },{
@@ -50,8 +58,10 @@ oList=[{
 		"configProperty": "origin5"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "origin5-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "origin5-2",
 	}]
 }]
@@ -63,6 +73,7 @@ nList=[{
 		"configProperty": "changed2"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "changed2-deleted-2",
 	}]
 },{
@@ -72,10 +83,13 @@ nList=[{
 		"configProperty": "changed4"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "changed4-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "changed4-2",
 	},{
+		"innerId": 3,
 		"innerProperty": "changed-added-4-3",
 	}]
 },{
@@ -85,8 +99,10 @@ nList=[{
 		"configProperty": "added6"
 	},
 	"innerArray": [{
+		"innerId": 1,
 		"innerProperty": "added6-1",
 	},{
+		"innerId": 2,
 		"innerProperty": "added6-2",
 	}]
 }]
