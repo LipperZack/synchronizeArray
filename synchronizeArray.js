@@ -243,7 +243,7 @@ nList=[{
 	exp.syncArray = syncArray
 }(window)
 
-syncArray(oList, nList, 'id');
+syncArray(oList, nList);
 // custom callback
 // syncArray(oList, nList, 'id', function(o, n){
 // 	delete o.__indexForMapFromArray;
